@@ -6,23 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsive (celular) -->
   <meta name="description" content="Portafolio de Jose Alejandro Perez, aprendiz de ADSO en el SENA.">
   <meta name="author" content="Jose Alejandro Perez">
-  <title>Portafolio | Jose Alejandro Perez</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Portafolio — Jose Alejandro Perez</title>                 <!-- texto de la pestaña -->
 </head>
 
 <body>
   <!-- ===== ENCABEZADO: nombre + menú de navegación ===== -->
-  <header class="terminal-window">
-    <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div class="terminal-header">
-      <p class="terminal-path">jose@dev:~$ whoami</p>
-      <h1>Jose Alejandro Perez<span class="cursor" aria-hidden="true">_</span></h1>
-      <p class="subtitle">Aprendiz de Análisis y Desarrollo de Software <span>//</span> SENA Bucaramanga</p>
-    </div>
-    <nav aria-label="Navegación principal">
+  <header>
+    <h1>Jose Alejandro Perez</h1>
+    <p>Aprendiz de Análisis y Desarrollo de Software — SENA Bucaramanga</p>
+    <nav>
       <!-- los enlaces con # saltan a las secciones por su id -->
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#proyectos">Proyectos</a>
@@ -37,27 +29,22 @@
     <!-- Sección "Sobre mí": incluye una imagen con figure/figcaption -->
     <section id="sobre-mi" class="seccion">
       <h2>Sobre mí</h2>
-      <div class="about-layout">
-      <figure class="profile-figure">
+      <figure>
         <!-- Pon tu foto real (archivo "foto.jpg" en esta misma carpeta).
              La etiqueta <img> NO lleva cierre. SIEMPRE con alt (texto alterno). -->
         <img src="Foto.jpeg" alt="Foto de Jose Alejandro Perez" width="180">
         <figcaption>Esta soy/este soy yo 👋</figcaption>
       </figure>
-      <div>
-        <p>Hola, soy Jose Alejandro Perez, un aprendiz de Análisis y Desarrollo de Software en el SENA. Me apasiona crear soluciones innovadoras con tecnologías web modernas.</p>
-        <p class="status-line"><span class="status-dot"></span> disponible para crear cosas interesantes</p>
-      </div>
-      </div>
+      <p>Hola, soy Jose Alejandro Perez, un aprendiz de Análisis y Desarrollo de Software en el SENA. Me apasiona crear soluciones innovadoras con tecnologías web modernas.</p>
     </section>
 
     <!-- Sección "Proyectos": una lista -->
     <section id="proyectos" class="seccion">
       <h2>Proyectos</h2>
-      <ul class="project-list">
-        <li class="project-item"><a href="https://github.com/alejoxpp/Catalogo-joyer-a.git" target="_blank" rel="noreferrer"><span class="project-index">01</span><span>Catalogo Vlover</span><span class="project-arrow">↗</span></a></li>
-        <li class="project-item"><a href="https://github.com/alejoxpp/TransferPlayer.git" target="_blank" rel="noreferrer"><span class="project-index">02</span><span>TransferPlayer</span><span class="project-arrow">↗</span></a></li>
-        <li class="project-item"><a href="https://github.com/alejoxpp/Gabo.git" target="_blank" rel="noreferrer"><span class="project-index">03</span><span>La Vida de Gabo</span><span class="project-arrow">↗</span></a></li>
+      <ul>
+        <li><a href="https://github.com/alejoxpp/Catalogo-joyer-a.git" target="_blank">Catalogo Vlover</a></li>
+        <li><a href="https://github.com/alejoxpp/TransferPlayer.git" target="_blank">TransferPlayer</a></li>
+        <li><a href="https://github.com/alejoxpp/Gabo.git" target="_blank">La Vida de gabo</a></li>
       </ul>
     </section>
 
@@ -66,34 +53,29 @@
       <h2>Multimedia</h2>
       <!-- video y audio necesitan un archivo local (demo.mp4 / tema.mp3).
            'controls' muestra los botones de reproducir. -->
-      <div class="media-grid">
-        <video src="La Pelea Con El Diablo - Octavio Mesa (Video Letra) _ Discos Fuentes.mp4" controls>Tu navegador no soporta video.</video>
-        <audio src="La-Pelea-Con-El-Diablo-Octavio-Mesa-_Video-Letra_-_-Discos-Fuentes-copia.mp3" controls>Tu navegador no soporta audio.</audio>
-      </div>
+      <video src="La Pelea Con El Diablo - Octavio Mesa (Video Letra) _ Discos Fuentes.mp4" width="320" controls>Tu navegador no soporta video.</video>
+      <audio src="La-Pelea-Con-El-Diablo-Octavio-Mesa-_Video-Letra_-_-Discos-Fuentes-copia.mp3" controls>Tu navegador no soporta audio.</audio>
     </section>
 
     <!-- Sección "Habilidades": otra lista -->
     <section id="habilidades" class="seccion">
       <h2>Habilidades</h2>
-      <ul class="skills-list">
-        <li class="skill-tag">HTML</li>
-        <li class="skill-tag">CSS</li>
-        <li class="skill-tag">JavaScript</li>
-        <li class="skill-tag">Git</li>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git</li>
       </ul>
     </section>
 
     <!-- Sección "Contacto": un formulario -->
     <section id="contacto" class="seccion">
       <h2>Contacto</h2>
-      <form class="contact-form">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" name="nombre" placeholder="tu_nombre" required>
-        <label for="correo">Correo</label>
-        <input id="correo" type="email" name="correo" placeholder="tu@correo.com" required>
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
-        <button type="submit">./enviar_mensaje</button>
+      <form>
+        <label>Nombre: <input type="text" name="nombre"></label>
+        <label>Correo: <input type="email" name="correo"></label>
+        <label>Mensaje: <textarea name="mensaje"></textarea></label>
+        <button type="submit">Enviar</button>
       </form>
       <!-- Enlace externo: target="_blank" lo abre en otra pestaña -->
       <p>Mi GitHub: <a href="https://github.com/alejoxpp" target="_blank">github.com/alejoxpp</a></p>
