@@ -12,6 +12,29 @@
 <body>
 
   <!-- ============================================================
+       PANTALLA DE CARGA (estilo VS Code, 100% CSS, sin JS)
+       Se oculta sola mediante una animación CSS con retardo.
+       ============================================================ -->
+  <div class="loader" role="status" aria-label="Cargando portafolio, por favor espera">
+    <div class="loader__content">
+      <div class="loader__logo" aria-hidden="true">
+        <span class="loader__wing loader__wing--left"></span>
+        <span class="loader__wing loader__wing--right"></span>
+      </div>
+      <div class="loader__text">
+        <span class="loader__title">Loading...</span>
+        <span class="loader__subtitle">Portafolio — Jose Alejandro Perez</span>
+      </div>
+      <div class="loader__bar" aria-hidden="true">
+        <span class="loader__bar-fill"></span>
+      </div>
+    </div>
+    <div class="loader__footer" aria-hidden="true">
+      <span class="loader__footer-item">Inicializando experiencia&#8230;</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
        ENCABEZADO: nombre + menú de navegación
        (sin JavaScript: los enlaces con # saltan a cada sección)
        ============================================================ -->
@@ -29,6 +52,7 @@
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#habilidades">Habilidades</a>
+        <a href="#nota-de-voz">Nota de voz</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -151,6 +175,47 @@
         </div>
 
       </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: NOTA DE VOZ (testimonio pícaro, sin JavaScript)
+         ============================================================ -->
+    <section id="nota-de-voz" class="section-block">
+      <div class="section-heading">
+        <h2>Nota de voz</h2>
+        <p class="section-sub">Un testimonio que no estaba en el plan de estudios&#8230; &#127911;</p>
+      </div>
+
+      <article class="nota-card">
+        <div class="nota-card__header">
+          <span class="nota-avatar" aria-hidden="true">J</span>
+          <div class="nota-card__who">
+            <strong>Jose Alejandro Perez</strong>
+            <span class="nota-card__meta">Nota de voz &middot; Enviada desde mi cuarto &middot; Visto por nadie &#128064;</span>
+          </div>
+          <span class="nota-rec" title="Grabando">&#9679; REC</span>
+        </div>
+
+        <div class="nota-waveform" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <audio class="nota-audio" controls preload="none"
+               src="La-Pelea-Con-El-Diablo-Octavio-Mesa-_Video-Letra_-_-Discos-Fuentes-copia.mp3">
+          Tu navegador no soporta el audio.
+        </audio>
+
+        <p class="nota-quote">
+          &ldquo;Les cuento que ese d&iacute;a me pele&eacute; con el diablo y, siendo sincero,
+          el susto val&iacute;a la pena. Este audio lo mando para que no se me olvide
+          la lecci&oacute;n&hellip; ni ustedes me la borren.&rdquo;
+        </p>
+
+        <p class="nota-disclaimer">
+          &#9888;&#65039; Grabaci&oacute;n casera, calidad 2007. Escuchar con aud&iacute;fonos y
+          discreci&oacute;n absoluta. El SENA no se hace responsable de lo que digo aqu&iacute;.
+        </p>
+      </article>
     </section>
 
     <!-- ============================================================

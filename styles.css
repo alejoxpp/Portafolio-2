@@ -52,6 +52,170 @@ a { color: var(--vscode-blue); text-decoration: none; }
 a:hover { color: var(--vscode-blue-dark); text-decoration: underline; }
 
 /* ============================================================
+   PANTALLA DE CARGA (estilo VS Code, 100% CSS, sin JS)
+   Cubre toda la ventana y se desvanece sola pasados ~2 seg.
+   ============================================================ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--vscode-bg);
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  animation: loader-hide .5s ease 1.9s forwards;
+}
+
+.loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* ---- Logo de dos alas (VS Code) hecho solo con CSS ---- */
+.loader__logo {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  width: 72px;
+  height: 68px;
+  filter: drop-shadow(0 0 18px rgba(0, 122, 204, .55));
+  animation: loader-logo-breathe 1.5s ease-in-out infinite;
+}
+
+.loader__wing {
+  display: block;
+}
+.loader__wing--left {
+  background: linear-gradient(180deg, #3794ff, #007acc);
+  clip-path: polygon(0 12%, 100% 0, 86% 100%, 0 100%);
+  animation: loader-wing-left 1.5s ease-in-out infinite;
+}
+.loader__wing--right {
+  background: linear-gradient(180deg, #3794ff, #007acc);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 88%);
+  animation: loader-wing-right 1.5s ease-in-out infinite;
+}
+
+/* ---- Texto ---- */
+.loader__title {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: .5px;
+  animation: loader-fade-slide .6s ease both;
+}
+
+.loader__subtitle {
+  display: block;
+  font-size: 13px;
+  color: #858585;
+  margin-top: 5px;
+  animation: loader-fade-slide .6s ease .15s both;
+}
+
+/* ---- Barra de progreso indeterminada (estilo VS Code) ---- */
+.loader__bar {
+  width: 220px;
+  height: 5px;
+  background: #2d2d2d;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  animation: loader-fade-slide .6s ease .3s both;
+}
+
+.loader__bar-fill {
+  position: absolute;
+  top: 0;
+  left: -45%;
+  width: 45%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #007acc, #3794ff);
+  animation: loader-sweep 1.15s ease-in-out infinite;
+}
+
+/* ---- Barra de estado azul inferior (detalle VS Code) ---- */
+.loader__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 26px;
+  background: var(--vscode-statusBar);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
+  animation: loader-fade-slide .6s ease .3s both;
+}
+
+.loader__footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.loader__footer-item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd53d;
+  animation: loader-blink 1s ease-in-out infinite;
+}
+
+/* ---- Animaciones ---- */
+@keyframes loader-hide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes loader-logo-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(.93); }
+}
+
+@keyframes loader-wing-left {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.45); }
+}
+@keyframes loader-wing-right {
+  0%, 100% { filter: brightness(1.45); }
+  50%      { filter: brightness(1); }
+}
+
+@keyframes loader-fade-slide {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loader-sweep {
+  0%   { left: -45%; }
+  100% { left: 100%; }
+}
+
+@keyframes loader-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .35; }
+}
+
+/* Accesibilidad: sin animaciones -> mostrar el sitio directamente */
+@media (prefers-reduced-motion: reduce) {
+  .loader { display: none; }
+}
+
+/* ============================================================
    ENCABEZADO
    ============================================================ */
 .site-header {
@@ -373,6 +537,136 @@ a:hover { color: var(--vscode-blue-dark); text-decoration: underline; }
 .bar-git  { width: 70%; }
 
 /* ============================================================
+   SECCIÓN: NOTA DE VOZ (testimonio pícaro, sin JS)
+   ============================================================ */
+.nota-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  border-top: 3px solid var(--vscode-blue);
+  padding: 20px 22px;
+  max-width: 640px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .06);
+}
+
+.nota-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nota-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vscode-blue), var(--vscode-blue-light));
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.nota-card__who {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+  min-width: 0;
+}
+
+.nota-card__who strong {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.nota-card__meta {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+/* Indicador REC parpadeante */
+.nota-rec {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #e11d48;
+  letter-spacing: 1px;
+  animation: nota-blink 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Forma de onda animada (puro CSS) */
+.nota-waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 46px;
+  margin: 16px 0 12px;
+}
+
+.nota-waveform span {
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--vscode-blue-light), var(--vscode-blue));
+  border-radius: 2px;
+  transform-origin: center;
+  animation: nota-bounce 1s ease-in-out infinite;
+}
+
+/* Alturas variadas estilo forma de onda */
+.nota-waveform span:nth-child(3n)   { height: 55%; }
+.nota-waveform span:nth-child(3n+1) { height: 100%; }
+.nota-waveform span:nth-child(3n+2) { height: 38%; }
+
+/* Retardos escalonados para el rebote */
+.nota-waveform span:nth-child(8n+1) { animation-delay: 0s; }
+.nota-waveform span:nth-child(8n+2) { animation-delay: .12s; }
+.nota-waveform span:nth-child(8n+3) { animation-delay: .24s; }
+.nota-waveform span:nth-child(8n+4) { animation-delay: .36s; }
+.nota-waveform span:nth-child(8n+5) { animation-delay: .48s; }
+.nota-waveform span:nth-child(8n+6) { animation-delay: .6s; }
+.nota-waveform span:nth-child(8n+7) { animation-delay: .72s; }
+.nota-waveform span:nth-child(8n)   { animation-delay: .84s; }
+
+/* Reproductor nativo (funciona sin JS) */
+.nota-audio {
+  width: 100%;
+  height: 40px;
+}
+
+/* Cita pícara */
+.nota-quote {
+  margin-top: 14px;
+  background: #f0f7fe;
+  border-left: 3px solid var(--vscode-blue);
+  padding: 10px 14px;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  color: #374151;
+  font-size: 14.5px;
+}
+
+/* Descargo de responsabilidad (broma) */
+.nota-disclaimer {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+@keyframes nota-bounce {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(.45); }
+}
+
+@keyframes nota-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .3; }
+}
+
+/* ============================================================
    SECCIÓN: CONTACTO
    ============================================================ */
 .contacto-grid {
@@ -568,4 +862,8 @@ a:hover { color: var(--vscode-blue-dark); text-decoration: underline; }
   .proyecto-card:hover,
   .btn,
   .btn:hover { transition: none; transform: none; }
+
+  /* Nota de voz: detener animaciones de onda y REC */
+  .nota-waveform span,
+  .nota-rec { animation: none; }
 }
