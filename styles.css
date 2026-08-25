@@ -1,0 +1,571 @@
+/* ============================================================
+   PORTAFOLIO — Jose Alejandro Perez (SENA)
+   Página normal, legible y sin JavaScript.
+   Estética VS Code SOLO en detalles decorativos:
+   - Barra de estado azul (#007acc) fija abajo
+   - Acentos de color azul en enlaces, botones y títulos
+   - Tipografía monoespaciada en detalles (logo, barra de estado)
+   ============================================================ */
+
+/* ---------- Variables ---------- */
+:root {
+  --vscode-statusBar: #007acc;
+  --vscode-blue: #007acc;
+  --vscode-blue-dark: #005a9e;
+  --vscode-blue-light: #3794ff;
+  --vscode-bg: #1e1e1e;
+
+  --bg-page: #f3f5f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+
+  --font-ui: "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: Consolas, "Fira Code", "Courier New", monospace;
+}
+
+/* ---------- Reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;   /* desplazamiento suave, solo CSS */
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-page);
+  color: var(--text);
+  line-height: 1.6;
+  padding-bottom: 26px;      /* espacio para la status bar fija */
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--vscode-blue); text-decoration: none; }
+a:hover { color: var(--vscode-blue-dark); text-decoration: underline; }
+
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--card);
+  border-bottom: 2px solid var(--vscode-statusBar);  /* detalle VS Code */
+  box-shadow: 0 1px 8px rgba(15, 23, 42, .06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 17px;
+}
+.brand:hover { color: var(--text); text-decoration: none; }
+
+.brand-name {
+  font-family: var(--font-ui);
+  line-height: 1.2;
+}
+
+/* Logo de dos alas estilo VS Code (hecho solo con CSS) */
+.brand-logo {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 26px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.brand-logo__left {
+  background: var(--vscode-blue);
+  clip-path: polygon(0 12%, 100% 0, 88% 100%, 0 100%);
+}
+.brand-logo__right {
+  background: var(--vscode-blue-light);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 88%);
+}
+
+/* Navegación */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.site-nav a {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color .15s ease, background .15s ease;
+}
+.site-nav a:hover {
+  color: var(--vscode-blue);
+  background: #e3f2fd;
+  text-decoration: none;
+}
+
+/* ============================================================
+   SECCIÓN: SOBRE MÍ (hero)
+   ============================================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 64px 0 40px;
+  scroll-margin-top: 84px;
+}
+
+.hero-copy { flex: 1; min-width: 0; }
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--vscode-blue);
+  margin-bottom: 8px;
+  letter-spacing: .4px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--vscode-blue-dark);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero-bio {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 52ch;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-figure {
+  flex-shrink: 0;
+  text-align: center;
+}
+.hero-figure img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--vscode-blue);
+  box-shadow: 0 10px 28px rgba(0, 122, 204, .22);
+}
+.hero-figure figcaption {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--vscode-blue);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: var(--vscode-blue-dark);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 122, 204, .28);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--vscode-blue);
+  border-color: var(--vscode-blue);
+}
+.btn-outline:hover {
+  background: #e3f2fd;
+  color: var(--vscode-blue-dark);
+}
+
+/* ============================================================
+   ENCABEZADOS DE SECCIÓN
+   ============================================================ */
+.section-block {
+  padding: 24px 0 40px;
+  scroll-margin-top: 84px;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Cuadradito azul antes del título (detalle VS Code) */
+.section-heading h2::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--vscode-blue);
+  flex-shrink: 0;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 6px;
+  margin-left: 24px;
+}
+
+/* ============================================================
+   SECCIÓN: PROYECTOS
+   ============================================================ */
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.proyecto-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  border-top: 3px solid var(--vscode-blue);
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .1);
+}
+
+.proyecto-card h3 {
+  font-size: 19px;
+  color: var(--text);
+}
+
+.proyecto-desc {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  flex: 1;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #e3f2fd;
+  color: var(--vscode-blue-dark);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.proyecto-link {
+  font-weight: 600;
+  font-size: 14.5px;
+  align-self: flex-start;
+}
+.proyecto-link:hover { text-decoration: underline; }
+
+/* ============================================================
+   SECCIÓN: HABILIDADES (barras solo CSS)
+   ============================================================ */
+.habilidades-list {
+  display: grid;
+  gap: 18px;
+  max-width: 640px;
+}
+
+.habilidad-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.habilidad-name {
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.habilidad-pct {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+
+.habilidad-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.habilidad-bar .bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--vscode-blue), var(--vscode-blue-light));
+}
+
+.bar-html { width: 90%; }
+.bar-css  { width: 85%; }
+.bar-js   { width: 75%; }
+.bar-git  { width: 70%; }
+
+/* ============================================================
+   SECCIÓN: CONTACTO
+   ============================================================ */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.contacto-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .06);
+  display: grid;
+  gap: 16px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo span {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: #fafbfc;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--vscode-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, .14);
+  background: #ffffff;
+}
+
+.campo textarea { resize: vertical; }
+
+/* Campo trampa anti-spam oculto visualmente */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.contacto-info {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--vscode-blue);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .06);
+}
+
+.contacto-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.contacto-note {
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+/* ============================================================
+   PIE DE PÁGINA
+   ============================================================ */
+.site-footer {
+  padding: 24px 20px 32px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.site-footer hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  max-width: 980px;
+  margin: 0 auto 18px;
+}
+
+/* ============================================================
+   STATUS BAR (detalle decorativo estilo VS Code)
+   Fija abajo, color azul #007acc, sin JavaScript
+   ============================================================ */
+.statusbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 26px;
+  z-index: 50;
+  background: var(--vscode-statusBar);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .18);
+  user-select: none;
+}
+
+.statusbar-left,
+.statusbar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.statusbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 6px;
+  height: 100%;
+  white-space: nowrap;
+}
+.statusbar-item:hover { background: rgba(255, 255, 255, .15); }
+
+.statusbar-star { color: #ffd53d; }
+.statusbar-item-lang {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 16px;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2px;
+  }
+  .site-nav a { padding: 5px 10px; font-size: 14px; }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 28px;
+    padding: 40px 0 24px;
+  }
+  .hero-bio { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
+
+  .proyectos-grid { grid-template-columns: 1fr; }
+
+  .contacto-grid { grid-template-columns: 1fr; }
+
+  .section-block { scroll-margin-top: 118px; }
+  .hero { scroll-margin-top: 118px; }
+
+  /* Ocultar algunas etiquetas de la status bar en móvil */
+  .statusbar-item-hide-sm { display: none; }
+}
+
+@media (max-width: 480px) {
+  .statusbar-item-hide-xs { display: none; }
+}
+
+/* Accesibilidad: respetar "reduce motion" del usuario */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .proyecto-card,
+  .proyecto-card:hover,
+  .btn,
+  .btn:hover { transition: none; transform: none; }
+}

@@ -1,92 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- ===== METADATOS: info que NO se ve, pero el navegador y Google usan ===== -->
-  <meta charset="UTF-8">                                <!-- acentos y ñ correctos -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsive (celular) -->
-  <meta name="description" content="Portafolio de Jose Alejandro Perez, aprendiz de ADSO en el SENA.">
+  <!-- ===== METADATOS ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de Jose Alejandro Perez, aprendiz de Análisis y Desarrollo de Software en el SENA.">
   <meta name="author" content="Jose Alejandro Perez">
-  <title>Portafolio — Jose Alejandro Perez</title>                 <!-- texto de la pestaña -->
+  <title>Portafolio — Jose Alejandro Perez</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- ===== ENCABEZADO: nombre + menú de navegación ===== -->
-  <header>
-    <h1>Jose Alejandro Perez</h1>
-    <p>Aprendiz de Análisis y Desarrollo de Software — SENA Bucaramanga</p>
-    <nav>
-      <!-- los enlaces con # saltan a las secciones por su id -->
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+
+  <!-- ============================================================
+       ENCABEZADO: nombre + menú de navegación
+       (sin JavaScript: los enlaces con # saltan a cada sección)
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#sobre-mi">
+        <!-- Logo decorativo estilo VS Code (solo CSS) -->
+        <span class="brand-logo" aria-hidden="true">
+          <span class="brand-logo__left"></span>
+          <span class="brand-logo__right"></span>
+        </span>
+        <span class="brand-name">Jose Alejandro Perez</span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- ===== CONTENIDO PRINCIPAL ===== -->
-  <main>
+  <main class="container">
 
-    <!-- Sección "Sobre mí": incluye una imagen con figure/figcaption -->
-    <section id="sobre-mi" class="seccion">
-      <h2>Sobre mí</h2>
-      <figure>
-        <!-- Pon tu foto real (archivo "foto.jpg" en esta misma carpeta).
-             La etiqueta <img> NO lleva cierre. SIEMPRE con alt (texto alterno). -->
-        <img src="Foto.jpeg" alt="Foto de Jose Alejandro Perez" width="180">
-        <figcaption>Esta soy/este soy yo 👋</figcaption>
+<!-- ============================================================
+         SECCIÓN: SOBRE MÍ (perfil con foto y biografía)
+         ============================================================ -->
+    <section id="sobre-mi" class="hero">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Hola, mi nombre es</p>
+        <h1>Jose Alejandro Perez</h1>
+        <p class="hero-subtitle">Aprendiz de Análisis y Desarrollo de Software — SENA Bucaramanga</p>
+        <p class="hero-bio">
+          Soy un aprendiz de Análisis y Desarrollo de Software en el SENA.
+          Me apasiona crear soluciones innovadoras con tecnologías web modernas
+          y aprender cada día algo nuevo.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Contáctame</a>
+          <a class="btn btn-outline" href="https://github.com/alejoxpp" target="_blank" rel="noopener">Mi GitHub</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="Foto.jpeg" alt="Foto de Jose Alejandro Perez" width="220">
+        <figcaption>Este soy yo 👋</figcaption>
       </figure>
-      <p>Hola, soy Jose Alejandro Perez, un aprendiz de Análisis y Desarrollo de Software en el SENA. Me apasiona crear soluciones innovadoras con tecnologías web modernas.</p>
+    </section>
+    <!-- ============================================================
+         SECCIÓN: PROYECTOS
+         ============================================================ -->
+    <section id="proyectos" class="section-block">
+      <div class="section-heading">
+        <h2>Proyectos</h2>
+        <p class="section-sub">Mis repositorios públicos en GitHub</p>
+      </div>
+
+      <div class="proyectos-grid">
+
+        <article class="proyecto-card">
+          <h3>Catalogo Vlover</h3>
+          <p class="proyecto-desc">Catálogo digital de joyería.</p>
+          <ul class="tags" aria-label="Tecnologías">
+            <li class="tag">HTML</li>
+            <li class="tag">CSS</li>
+            <li class="tag">JavaScript</li>
+          </ul>
+          <a class="proyecto-link" href="https://github.com/alejoxpp/Catalogo-joyer-a.git" target="_blank" rel="noopener">
+            Ver repositorio &#8599;
+          </a>
+        </article>
+
+        <article class="proyecto-card">
+          <h3>TransferPlayer</h3>
+          <p class="proyecto-desc">Reproductor de audio y transferencia de archivos.</p>
+          <ul class="tags" aria-label="Tecnologías">
+            <li class="tag">JavaScript</li>
+            <li class="tag">HTML</li>
+          </ul>
+          <a class="proyecto-link" href="https://github.com/alejoxpp/TransferPlayer.git" target="_blank" rel="noopener">
+            Ver repositorio &#8599;
+          </a>
+        </article>
+
+        <article class="proyecto-card">
+          <h3>La Vida de Gabo</h3>
+          <p class="proyecto-desc">Página dedicada a la vida de Gabriel García Márquez.</p>
+          <ul class="tags" aria-label="Tecnologías">
+            <li class="tag">HTML</li>
+            <li class="tag">CSS</li>
+          </ul>
+          <a class="proyecto-link" href="https://github.com/alejoxpp/Gabo.git" target="_blank" rel="noopener">
+            Ver repositorio &#8599;
+          </a>
+        </article>
+
+      </div>
     </section>
 
-    <!-- Sección "Proyectos": una lista -->
-    <section id="proyectos" class="seccion">
-      <h2>Proyectos</h2>
-      <ul>
-        <li><a href="https://github.com/alejoxpp/Catalogo-joyer-a.git" target="_blank">Catalogo Vlover</a></li>
-        <li><a href="https://github.com/alejoxpp/TransferPlayer.git" target="_blank">TransferPlayer</a></li>
-        <li><a href="https://github.com/alejoxpp/Gabo.git" target="_blank">La Vida de gabo</a></li>
-      </ul>
+    <!-- ============================================================
+         SECCIÓN: HABILIDADES (barras de progreso, solo CSS)
+         ============================================================ -->
+    <section id="habilidades" class="section-block">
+      <div class="section-heading">
+        <h2>Habilidades</h2>
+        <p class="section-sub">Tecnologías que estudio y uso en mis proyectos</p>
+      </div>
+
+      <div class="habilidades-list">
+
+        <div class="habilidad">
+          <div class="habilidad-top">
+            <span class="habilidad-name">HTML</span>
+            <span class="habilidad-pct">90%</span>
+          </div>
+          <div class="habilidad-bar"><span class="bar bar-html"></span></div>
+        </div>
+
+        <div class="habilidad">
+          <div class="habilidad-top">
+            <span class="habilidad-name">CSS</span>
+            <span class="habilidad-pct">85%</span>
+          </div>
+          <div class="habilidad-bar"><span class="bar bar-css"></span></div>
+        </div>
+
+        <div class="habilidad">
+          <div class="habilidad-top">
+            <span class="habilidad-name">JavaScript</span>
+            <span class="habilidad-pct">75%</span>
+          </div>
+          <div class="habilidad-bar"><span class="bar bar-js"></span></div>
+        </div>
+
+        <div class="habilidad">
+          <div class="habilidad-top">
+            <span class="habilidad-name">Git</span>
+            <span class="habilidad-pct">70%</span>
+          </div>
+          <div class="habilidad-bar"><span class="bar bar-git"></span></div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Sección "Multimedia" de ejemplo: video y audio locales -->
-    <section id="multimedia" class="seccion">
-      <h2>Multimedia</h2>
-      <!-- video y audio necesitan un archivo local (demo.mp4 / tema.mp3).
-           'controls' muestra los botones de reproducir. -->
-      <video src="La Pelea Con El Diablo - Octavio Mesa (Video Letra) _ Discos Fuentes.mp4" width="320" controls>Tu navegador no soporta video.</video>
-      <audio src="La-Pelea-Con-El-Diablo-Octavio-Mesa-_Video-Letra_-_-Discos-Fuentes-copia.mp3" controls>Tu navegador no soporta audio.</audio>
-    </section>
+    <!-- ============================================================
+         SECCIÓN: CONTACTO (formulario funcional SIN JavaScript)
+         ============================================================ -->
+    <section id="contacto" class="section-block">
+      <div class="section-heading">
+        <h2>Contacto</h2>
+        <p class="section-sub">¿Tienes una idea o proyecto? Escríbeme.</p>
+      </div>
 
-    <!-- Sección "Habilidades": otra lista -->
-    <section id="habilidades" class="seccion">
-      <h2>Habilidades</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-      </ul>
-    </section>
+      <div class="contacto-grid">
+        <!-- El formulario se envía con el endpoint real de FormSubmit,
+             no necesita JavaScript para funcionar. -->
+        <form class="contacto-form" action="https://formsubmit.co/alejoxpp@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" aria-hidden="true">
+          <label class="campo">
+            <span>Nombre</span>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </label>
+          <label class="campo">
+            <span>Correo</span>
+            <input type="email" name="correo" placeholder="tu@correo.com" required>
+          </label>
+          <label class="campo">
+            <span>Mensaje</span>
+            <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        </form>
 
-    <!-- Sección "Contacto": un formulario -->
-    <section id="contacto" class="seccion">
-      <h2>Contacto</h2>
-      <form>
-        <label>Nombre: <input type="text" name="nombre"></label>
-        <label>Correo: <input type="email" name="correo"></label>
-        <label>Mensaje: <textarea name="mensaje"></textarea></label>
-        <button type="submit">Enviar</button>
-      </form>
-      <!-- Enlace externo: target="_blank" lo abre en otra pestaña -->
-      <p>Mi GitHub: <a href="https://github.com/alejoxpp" target="_blank">github.com/alejoxpp</a></p>
+        <aside class="contacto-info">
+          <h3>Mi GitHub</h3>
+          <p>
+            <a href="https://github.com/alejoxpp" target="_blank" rel="noopener">
+              github.com/alejoxpp
+            </a>
+          </p>
+          <p class="contacto-note">
+            Este formulario se envía mediante <strong>FormSubmit</strong> y
+            funciona sin JavaScript.
+          </p>
+        </aside>
+      </div>
     </section>
 
   </main>
 
-  <!-- ===== PIE DE PÁGINA ===== -->
-  <footer>
-    <hr> <!-- línea separadora, etiqueta sin cierre -->
-    <p>© 2026 Jose Alejandro Perez — Portafolio hecho en el curso de ADSO.</p>
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer class="site-footer">
+    <hr>
+    <p>&copy; 2026 Jose Alejandro Perez — Portafolio hecho en el curso de ADSO.</p>
   </footer>
+
+  <!-- ============================================================
+       STATUS BAR decorativa (detalle visual estilo VS Code)
+       Solo CSS, sin JavaScript
+       ============================================================ -->
+  <div class="statusbar" role="contentinfo" aria-label="Barra de estado decorativa">
+    <div class="statusbar-left">
+      <span class="statusbar-item">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="4" cy="4" r="1.6"/>
+          <line x1="4" y1="5.6" x2="4" y2="10.5"/>
+          <circle cx="12" cy="12" r="1.6"/>
+          <path d="M4 10.5c0-1 1-2 3-2h4"/>
+        </svg>
+        <span>main</span><span class="statusbar-star">*</span>
+      </span>
+      <span class="statusbar-item statusbar-item-hide-sm">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="8" cy="8" r="2.2"/>
+          <circle cx="8" cy="8" r="5.4"/>
+        </svg>
+        <span>0</span><span>&times;</span><span>Errores</span>
+      </span>
+      <span class="statusbar-item statusbar-item-hide-sm">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M8 1.6 L14.6 14 H1.4z"/>
+          <line x1="8" y1="6" x2="8" y2="9.5"/>
+        </svg>
+        <span>0</span>
+      </span>
+    </div>
+    <div class="statusbar-right">
+      <span class="statusbar-item statusbar-item-hide-sm">Espacios: 2</span>
+      <span class="statusbar-item">UTF-8</span>
+      <span class="statusbar-item statusbar-item-hide-xs">LF</span>
+      <span class="statusbar-item statusbar-item-lang">HTML</span>
+      <span class="statusbar-item statusbar-item-hide-sm">&#10024; Prettier</span>
+      <span class="statusbar-item">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M8 1.5A4 4 0 0 0 4 5.5v3L2 11h12l-2-3v-2.5a4 4 0 0 0-4-4z"/>
+          <path d="M6.6 13.2a1.4 1.4 0 0 0 2.8 0"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+
 </body>
 </html>
